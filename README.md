@@ -19,7 +19,7 @@ API orchestration, agent/tool routing, structured extraction, and reliability ba
 ## Architecture
 - **FastAPI** provides `/calls` endpoints
 - A lightweight **agent orchestrator** runs a conversation loop
-- A **voice simulator** creates user turns (no telephony needed)
+- A **voice simulator** creates user turns.
 - **Tools** simulate CRM lookup, ticket creation, and KB search
 - **Metrics + structured logs** provide observability
 
