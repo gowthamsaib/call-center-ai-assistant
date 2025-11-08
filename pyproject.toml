@@ -9,6 +9,7 @@ dependencies = [
     "pydantic>=2.5",
     "python-dotenv>=1.0",
     "requests>=2.31"
+    "openai>=1.0.0"
 ]
 
 [project.optional-dependencies]
