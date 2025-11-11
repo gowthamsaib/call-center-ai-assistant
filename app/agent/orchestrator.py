@@ -107,15 +107,24 @@ def run_call(call_id: str, req: CallRequest, store, metrics) -> CallResult:
     tool_calls += 1
 
     # Conversation loop
-    for user_text in user_turns:
+    agent_text = (
+        f"Understood. I can help with that. I see your account is {crm['status']} on the "
+        f"{crm['plan']} plan. Policy reference: {kb['top_article']}. "
+        "I’ll submit the request now."
+    )
+
+    for i, user_text in enumerate(user_turns):
         transcript.append(Turn(role="user", text=user_text))
 
-        agent_text = (
-            f"Understood. I can help with that. I see your account is {crm['status']} on the "
-            f"{crm['plan']} plan. Policy reference: {kb['top_article']}. "
-            "I’ll submit the request now."
-        )
-        transcript.append(Turn(role="agent", text=agent_text))
+        if i == 0:
+            # Full confirmation only once
+            transcript.append(Turn(role="agent", text=agent_text))
+        else:
+            # Short acknowledgements for follow-ups
+            transcript.append(
+                Turn(role="agent", text="Thanks for confirming.")
+            )
+
 
     # Ticket creation
     ticket = tools.create_ticket(req.member_id, "member_request", req.task)
