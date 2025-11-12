@@ -120,10 +120,17 @@ def run_call(call_id: str, req: CallRequest, store, metrics) -> CallResult:
             # Full confirmation only once
             transcript.append(Turn(role="agent", text=agent_text))
         else:
-            # Short acknowledgements for follow-ups
+            ACKS = [
+                "Thanks for confirming.",
+                "Got it.",
+                "Understood.",
+                "Perfect, thanks.",
+                "All set."
+            ]
             transcript.append(
-                Turn(role="agent", text="Thanks for confirming.")
+                Turn(role="agent", text=ACKS[i % len(ACKS)])
             )
+
 
 
     # Ticket creation
