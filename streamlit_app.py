@@ -1,7 +1,7 @@
 import requests
 import streamlit as st
 
-st.title("Call Center AI Assistant (Demo)")
+st.title("Call Center AI Assistant")
 
 base_url = st.text_input("API Base URL", "http://127.0.0.1:8000")
 
