@@ -4,18 +4,18 @@ version = "0.1.0"
 description = "Local simulation of a call center AI assistant with API orchestration and structured extraction."
 requires-python = ">=3.10"
 dependencies = [
-    "fastapi>=0.110",
-    "uvicorn>=0.27",
-    "pydantic>=2.5",
-    "python-dotenv>=1.0",
-    "requests>=2.31"
-    "openai>=1.0.0"
-    "streamlit>=1.30"
+  "fastapi>=0.110",
+  "uvicorn>=0.27",
+  "pydantic>=2.5",
+  "python-dotenv>=1.0",
+  "requests>=2.31",
+  "openai>=1.0.0",
+  "streamlit>=1.30",
 ]
 
 [project.optional-dependencies]
 dev = [
-    "pytest>=8.0",
-    "httpx>=0.27",
-    "ruff>=0.3"
+  "pytest>=8.0",
+  "httpx>=0.27",
+  "ruff>=0.3",
 ]
